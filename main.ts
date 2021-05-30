@@ -29,3 +29,6 @@ game.onUpdate(function () {
         humo.setImage(assets.image`vacio`)
     }
 })
+game.onUpdate(function () {
+	
+})
