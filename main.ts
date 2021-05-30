@@ -1,9 +1,55 @@
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
+    half = 1
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
+    game.over(false)
+})
+info.onCountdownEnd(function () {
+    game.over(false)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`finish`, function (sprite, location) {
+    if (vueltas == 3) {
+        info.stopCountdown()
+        tiempo = info.score()
+        game.over(true)
+        info.setScore(0)
+    }
+    info.startCountdown(45)
+    info.setScore(vueltas)
+    if (half == 1) {
+        vueltas += 1
+        half = 0
+    }
+})
+let tiempo = 0
+let vueltas = 0
+let half = 0
 scene.setBackgroundColor(1)
+tiles.setTilemap(tilemap`track1`)
 scene.setBackgroundImage(assets.image`Menu`)
+let turbo = sprites.create(img`
+    f f f f f f f f f f f f f f f f 
+    f 2 2 2 2 2 2 2 2 2 2 2 2 2 2 f 
+    f 2 2 2 2 2 2 2 2 2 2 2 2 2 2 f 
+    f 2 2 8 8 8 8 8 8 8 8 8 8 2 2 f 
+    f 2 2 8 8 8 8 8 8 8 8 8 8 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 8 8 8 8 2 2 2 2 2 f 
+    f 2 2 2 2 2 2 2 2 2 2 2 2 2 2 f 
+    f f f f f f f f f f f f f f f f 
+    `, SpriteKind.Player)
+tiles.placeOnTile(turbo, tiles.getTileLocation(16, 29))
+half = 1
 let car1 = sprites.create(assets.image`car0`, SpriteKind.Player)
 let humo = sprites.create(assets.image`humo1`, SpriteKind.Player)
 humo.setImage(assets.image`vacio`)
-tiles.setTilemap(tilemap`level1`)
 scene.cameraFollowSprite(car1)
 tiles.placeOnTile(car1, tiles.getTileLocation(7, 32))
 tiles.placeOnTile(humo, tiles.getTileLocation(7, 32))
@@ -24,11 +70,7 @@ game.onUpdate(function () {
     if (controller.right.isPressed() || (controller.up.isPressed() || (controller.down.isPressed() || controller.left.isPressed()))) {
         humo.setImage(assets.image`humo1`)
         humo.follow(car1, 98)
-        humo.startEffect(effects.ashes, 100)
     } else {
-        humo.setImage(assets.image`vacio`)
+    	
     }
-})
-game.onUpdate(function () {
-	
 })
