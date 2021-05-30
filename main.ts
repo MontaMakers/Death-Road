@@ -9,9 +9,6 @@ tiles.placeOnTile(car1, tiles.getTileLocation(7, 32))
 tiles.placeOnTile(humo, tiles.getTileLocation(7, 32))
 controller.moveSprite(car1, 100, 100)
 game.onUpdate(function () {
-	
-})
-game.onUpdate(function () {
     if (controller.right.isPressed()) {
         car1.setImage(assets.image`car1`)
     }
@@ -30,10 +27,5 @@ game.onUpdate(function () {
         humo.startEffect(effects.ashes, 100)
     } else {
         humo.setImage(assets.image`vacio`)
-    }
-})
-game.onUpdate(function () {
-    if (false && controller.up.isPressed()) {
-    	
     }
 })
