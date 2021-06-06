@@ -54,6 +54,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Fire 1"
     },
+    "#xYmax2qB+X*i4+6S2Wr": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAFUFAAAAAFBVVVUAAAAAVVVVVQUAAFBV9VVVVQ8AUFVVVVVVAOBeVfVVVVUADlBVVVVVVQ8AAFVVVVUFAAAAUFVVVQAAAAAAAFUFAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Platano"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
